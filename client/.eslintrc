@@ -1,6 +1,13 @@
 {
     "parserOptions": {
+        "parser": "@babel/eslint-parser",
         "sourceType": "module",
-        "ecmaVersion": 2020
+        "parser":"babel-eslint",
+        "ecmaVersion": 6,
+        "ecmaFeatures": {
+          "experimentalObjectRestSpread": true
+        }
+        
     }
+    
   }
