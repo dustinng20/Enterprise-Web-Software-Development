@@ -1,31 +1,27 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const PostSchema = new mongoose.Schema(
+const categorySchema = mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true,
     },
     content: {
       type: String,
       max: 50000,
-      required: true,
     },
 
     dateStart: {
-      required: true,
       type: Date,
     },
     dateEnd: {
-      required: true,
       type: Date,
     },
     categoriesStatus: {
       type: Boolean,
-      default: false,
+      default: true,
     },
   },
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Categories", PostSchema);
+export default mongoose.model("Category", categorySchema);

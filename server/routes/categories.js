@@ -1,14 +1,16 @@
-const router = require("express").Router();
-const Categories = require("../models/Categories");
-const User = require("../models/User");
+import express from "express";
+import auth from "../middleware/auth.js";
 
-// create a post
-router.post("/", async (req, res) => {
-  const newCategories = new Categories(req.body);
-  try {
-    const savedPost = await newCategories.save();
-    res.status(200).json(savedPost);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+import {
+  createCategory,
+  deleteCategory,
+  getCategories,
+} from "../controllers/categories.js";
+
+const router = express.Router();
+
+router.post("/", createCategory);
+router.get("/", getCategories);
+router.delete("/:id", deleteCategory);
+
+export default router;

@@ -6,6 +6,7 @@ import dotenv from "dotenv";
 
 import postRoutes from "./routes/posts.js";
 import userRoutes from "./routes/users.js";
+import categoriesRoutes from "./routes/categories.js";
 
 const app = express();
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(cors());
 
 app.use("/posts", postRoutes);
 app.use("/user", userRoutes);
+app.use("/categories", categoriesRoutes);
 
 const PORT = process.env.PORT;
 
